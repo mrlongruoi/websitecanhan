@@ -11,7 +11,7 @@
     "typegen": "sanity schema extract && sanity typegen generate"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.34.0",
+    "@clerk/nextjs": "^6.34.1",
     "@gsap/react": "^2.1.2",
     "@sanity/client": "^7.12.0",
     "@sanity/icons": "^3.7.4",
