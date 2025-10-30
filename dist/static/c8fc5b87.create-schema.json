@@ -1,0 +1,2787 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "firstName",
+        "type": "string",
+        "title": "Họ"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "lastName",
+        "type": "string",
+        "title": "Tên"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "E.g., 'Full-Stack Developer & AI Engineer'",
+        "name": "headline",
+        "type": "string",
+        "title": "Tiêu đề chuyên môn"
+      },
+      {
+        "placeholder": "I build",
+        "description": "Nội dung cố định trong tiêu đề (ví dụ: 'I build')",
+        "name": "headlineStaticText",
+        "type": "string",
+        "title": "Nội dung cố định trong tiêu đề"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 2
+              },
+              {
+                "flag": "max",
+                "constraint": 10
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Các từ động trong tiêu đề (ví dụ: 'Full-Stack Developer & AI Engineer')",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "headlineAnimatedWords",
+        "type": "array",
+        "title": "Các từ động trong tiêu đề"
+      },
+      {
+        "initialValue": 3000,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1000
+              },
+              {
+                "flag": "max",
+                "constraint": 10000
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Thời gian mỗi từ hiển thị trước khi lật (mặc định: 3000ms)",
+        "name": "headlineAnimationDuration",
+        "type": "number",
+        "title": "Thời gian hoạt ảnh tiêu đề (ms)"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief introduction (2-3 sentences)",
+        "name": "shortBio",
+        "type": "text",
+        "title": "Tiểu sử ngắn"
+      },
+      {
+        "description": "Tiểu sử chi tiết với định dạng văn bản",
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "fullBio",
+        "type": "array",
+        "title": "Tiểu sử chi tiết"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "description": "Mô tả hình ảnh (hữu ích cho SEO và khả năng truy cập)",
+            "name": "alt",
+            "type": "string",
+            "title": "Mô tả hình ảnh"
+          }
+        ],
+        "name": "profileImage",
+        "type": "image",
+        "title": "Hình ảnh hồ sơ"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "email",
+        "type": "string",
+        "title": "E-mail"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "title": "Số điện thoại"
+      },
+      {
+        "description": "Ví dụ: 'San Francisco, CA' hoặc 'Remote'",
+        "name": "location",
+        "type": "string",
+        "title": "Vị trí"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Có sẵn để thuê",
+              "value": "available"
+            },
+            {
+              "title": "Mở để cơ hội",
+              "value": "open"
+            },
+            {
+              "title": "Không tìm kiếm",
+              "value": "unavailable"
+            }
+          ]
+        },
+        "name": "availability",
+        "type": "string",
+        "title": "Tình trạng sẵn có"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "github",
+            "type": "url",
+            "title": "GitHub"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "linkedin",
+            "type": "url",
+            "title": "LinkedIn"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "twitter",
+            "type": "url",
+            "title": "Twitter/X"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "website",
+            "type": "url",
+            "title": "Trang Web cá nhân"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "medium",
+            "type": "url"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "devto",
+            "type": "url",
+            "title": "Dev.to"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "youtube",
+            "type": "url",
+            "title": "YouTube"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "stackoverflow",
+            "type": "url",
+            "title": "Stack Overflow"
+          }
+        ],
+        "name": "socialLinks",
+        "type": "object",
+        "title": "Liên kết mạng xã hội"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "yearsOfExperience",
+        "type": "number",
+        "title": "Số năm kinh nghiệm"
+      },
+      {
+        "description": "Các thống kê chính để hiển thị trong phần giới thiệu của bạn",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "label",
+                "type": "string",
+                "title": "Nhãn"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Ví dụ: '50+', '100%', '24/7'",
+                "name": "value",
+                "type": "string",
+                "title": "Giá trị"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "stats",
+        "type": "array",
+        "title": "Thống kê hồ sơ"
+      }
+    ],
+    "name": "profile",
+    "type": "document",
+    "title": "Hồ sơ"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Tiêu đề dự án"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 150
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Mô tả ngắn gọn về dự án",
+        "name": "tagline",
+        "type": "string",
+        "title": "Mô tả ngắn gọn"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "fields": [
+          {
+            "description": "Mô tả hình ảnh để hỗ trợ người đọc",
+            "name": "alt",
+            "type": "string",
+            "title": "Mô tả hình ảnh"
+          }
+        ],
+        "name": "coverImage",
+        "type": "image",
+        "title": "Hình ảnh đại diện"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 6
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Chọn từ danh sách công nghệ (tối đa 6)",
+        "of": [
+          {
+            "to": [
+              {
+                "type": "skill"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to kỹ năng"
+          }
+        ],
+        "name": "technologies",
+        "type": "array",
+        "title": "Công nghệ sử dụng"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Web Application",
+              "value": "web-app"
+            },
+            {
+              "title": "Mobile App",
+              "value": "mobile-app"
+            },
+            {
+              "title": "AI/ML Project",
+              "value": "ai-ml"
+            },
+            {
+              "title": "API/Backend",
+              "value": "api-backend"
+            },
+            {
+              "title": "DevOps/Infrastructure",
+              "value": "devops"
+            },
+            {
+              "title": "Open Source",
+              "value": "open-source"
+            },
+            {
+              "title": "CLI Tool",
+              "value": "cli-tool"
+            },
+            {
+              "title": "Desktop App",
+              "value": "desktop-app"
+            },
+            {
+              "title": "Browser Extension",
+              "value": "browser-extension"
+            },
+            {
+              "title": "Game",
+              "value": "game"
+            },
+            {
+              "title": "Other",
+              "value": "other"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "web-app",
+                  "mobile-app",
+                  "ai-ml",
+                  "api-backend",
+                  "devops",
+                  "open-source",
+                  "cli-tool",
+                  "desktop-app",
+                  "browser-extension",
+                  "game",
+                  "other"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "category",
+        "type": "string",
+        "title": "Danh mục dự án"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Liên kết đến dự án đang hoạt động",
+        "name": "liveUrl",
+        "type": "url",
+        "title": "Liên kết dự án"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Liên kết đến kho lưu trữ GitHub",
+        "name": "githubUrl",
+        "type": "url",
+        "title": "Liên kết GitHub"
+      },
+      {
+        "initialValue": false,
+        "description": "Hiển thị dự án này nổi bật trên trang chủ",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Dự án nổi bật"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 99
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Số nhỏ hơn sẽ hiển thị trước (0-99)",
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "project",
+    "type": "document",
+    "title": "Dự án"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Tên kỹ năng"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Frontend",
+              "value": "frontend"
+            },
+            {
+              "title": "Backend",
+              "value": "backend"
+            },
+            {
+              "title": "AI/ML",
+              "value": "ai-ml"
+            },
+            {
+              "title": "DevOps",
+              "value": "devops"
+            },
+            {
+              "title": "Database",
+              "value": "database"
+            },
+            {
+              "title": "Mobile",
+              "value": "mobile"
+            },
+            {
+              "title": "Cloud",
+              "value": "cloud"
+            },
+            {
+              "title": "Testing",
+              "value": "testing"
+            },
+            {
+              "title": "Design",
+              "value": "design"
+            },
+            {
+              "title": "Tools",
+              "value": "tools"
+            },
+            {
+              "title": "Soft Skills",
+              "value": "soft-skills"
+            },
+            {
+              "title": "Other",
+              "value": "other"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "frontend",
+                  "backend",
+                  "ai-ml",
+                  "devops",
+                  "database",
+                  "mobile",
+                  "cloud",
+                  "testing",
+                  "design",
+                  "tools",
+                  "soft-skills",
+                  "other"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "category",
+        "type": "string",
+        "title": "Danh mục"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Dễ",
+              "value": "beginner"
+            },
+            {
+              "title": "Trung bình",
+              "value": "intermediate"
+            },
+            {
+              "title": "Cao",
+              "value": "advanced"
+            },
+            {
+              "title": "Chuyên nghiệp",
+              "value": "expert"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "beginner",
+                  "intermediate",
+                  "advanced",
+                  "expert"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "proficiency",
+        "type": "string",
+        "title": "Cấp độ chuyên môn"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "0-100 cho các thanh tiến trình",
+        "name": "percentage",
+        "type": "number",
+        "title": "Tỷ lệ chuyên môn"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "yearsOfExperience",
+        "type": "number",
+        "title": "Số năm kinh nghiệm"
+      },
+      {
+        "description": "Mã màu HEX cho badge kỹ năng (ví dụ: #61DAFB cho React)",
+        "name": "color",
+        "type": "string",
+        "title": "Brand Color"
+      }
+    ],
+    "name": "skill",
+    "type": "document",
+    "title": "Kỹ năng"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "company",
+        "type": "string",
+        "title": "Tên công ty"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "position",
+        "type": "string",
+        "title": "Vị trí / Vai trò"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Toàn thời gian",
+              "value": "full-time"
+            },
+            {
+              "title": "Bán thời gian",
+              "value": "part-time"
+            },
+            {
+              "title": "Hợp đồng",
+              "value": "contract"
+            },
+            {
+              "title": "Tự do",
+              "value": "freelance"
+            },
+            {
+              "title": "Học viên",
+              "value": "internship"
+            }
+          ]
+        },
+        "name": "employmentType",
+        "type": "string",
+        "title": "Hình thức làm việc"
+      },
+      {
+        "description": "Ví dụ: Thành phố, Bang hoặc 'Remote'",
+        "name": "location",
+        "type": "string",
+        "title": "Vị trí"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "startDate",
+        "type": "date",
+        "title": "Ngày bắt đầu"
+      },
+      {
+        "description": "Để trống nếu là vị trí hiện tại",
+        "name": "endDate",
+        "type": "date",
+        "title": "Ngày kết thúc"
+      },
+      {
+        "initialValue": false,
+        "name": "current",
+        "type": "boolean",
+        "title": "Vị trí hiện tại"
+      },
+      {
+        "description": "Chi tiết về trách nhiệm và thành tựu công việc",
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "description",
+        "type": "array",
+        "title": "Mô tả"
+      },
+      {
+        "description": "Danh sách các trách nhiệm chính",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "responsibilities",
+        "type": "array",
+        "title": "Trách nhiệm chính"
+      },
+      {
+        "description": "Các thành tựu có thể đo lường được",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "achievements",
+        "type": "array",
+        "title": "Thành tựu nổi bật"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "skill"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to kỹ năng"
+          }
+        ],
+        "name": "technologies",
+        "type": "array",
+        "title": "Công nghệ sử dụng"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Mô tả hình ảnh"
+          }
+        ],
+        "name": "companyLogo",
+        "type": "image",
+        "title": "Logo công ty"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "companyWebsite",
+        "type": "url",
+        "title": "Website công ty"
+      },
+      {
+        "initialValue": 0,
+        "description": "Số nhỏ hơn sẽ xuất hiện trước (thường là công việc mới nhất)",
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "experience",
+    "type": "document",
+    "title": "Kinh nghiệm làm việc"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Tên khách hàng/người dùng"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ví dụ: 'CTO', 'Product Manager', 'Founder'",
+        "name": "position",
+        "type": "string",
+        "title": "Chức vụ/nhiệm vụ"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "company",
+        "type": "string",
+        "title": "Công ty/Tổ chức"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Mô tả hình ảnh"
+          }
+        ],
+        "name": "avatar",
+        "type": "image",
+        "title": "Hình ảnh/Avatar"
+      },
+      {
+        "rows": 5,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "testimonial",
+        "type": "text",
+        "title": "Lời chứng thực"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 5
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "1-5 sao",
+        "name": "rating",
+        "type": "number",
+        "title": "Số sao/Đánh giá"
+      },
+      {
+        "name": "date",
+        "type": "date",
+        "title": "Ngày nhận xét"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link đến trang LinkedIn của khách hàng/người dùng",
+        "name": "linkedinUrl",
+        "type": "url",
+        "title": "Liên kết LinkedIn"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "companyLogo",
+        "type": "image",
+        "title": "Hình ảnh/logo công ty"
+      },
+      {
+        "initialValue": false,
+        "description": "Hiển thị trên trang chủ",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Lời chứng thực nổi bật"
+      },
+      {
+        "initialValue": 0,
+        "description": "Số thứ tự hiển thị trên trang chủ",
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "testimonial",
+    "type": "document",
+    "title": "Lời chứng thực"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Tên chứng nhận"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ví dụ: 'AWS', 'Google Cloud', 'Microsoft'",
+        "name": "issuer",
+        "type": "string",
+        "title": "Nơi cấp"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "issueDate",
+        "type": "date",
+        "title": "Ngày cấp"
+      },
+      {
+        "description": "Nếu không có hạn sử dụng, để trống",
+        "name": "expiryDate",
+        "type": "date",
+        "title": "Hạn sử dụng"
+      },
+      {
+        "description": "ID chứng nhận hoặc số badge",
+        "name": "credentialId",
+        "type": "string",
+        "title": "Mã chứng nhận"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link để xác nhận chứng nhận",
+        "name": "credentialUrl",
+        "type": "url",
+        "title": "Link xác nhận"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Upload logo chứng nhận hoặc badge",
+        "name": "logo",
+        "type": "image",
+        "title": "Logo chứng nhận"
+      },
+      {
+        "rows": 3,
+        "description": "Mô tả kỹ năng hoặc kiến thức được chứng nhận",
+        "name": "description",
+        "type": "text",
+        "title": "Mô tả"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "skill"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to kỹ năng"
+          }
+        ],
+        "name": "skills",
+        "type": "array",
+        "title": "Kỹ năng liên quan"
+      },
+      {
+        "initialValue": 0,
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "certification",
+    "type": "document",
+    "title": "Chứng nhận"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Tên thành tích"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Huy chương",
+              "value": "award"
+            },
+            {
+              "title": "Hackathon giành chiến thắng",
+              "value": "hackathon"
+            },
+            {
+              "title": "Tạp chí",
+              "value": "publication"
+            },
+            {
+              "title": "Trung tạp",
+              "value": "speaking"
+            },
+            {
+              "title": "Phần mềm miễn phí",
+              "value": "open-source"
+            },
+            {
+              "title": "Cột mốc quan trọng",
+              "value": "milestone"
+            },
+            {
+              "title": "Sự công nhận",
+              "value": "recognition"
+            },
+            {
+              "title": "Khác",
+              "value": "other"
+            }
+          ]
+        },
+        "name": "type",
+        "type": "string",
+        "title": "Loại"
+      },
+      {
+        "description": "Who awarded this?",
+        "name": "issuer",
+        "type": "string",
+        "title": "Tổ chức cấp"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "date",
+        "type": "date",
+        "title": "Ngày nhận"
+      },
+      {
+        "rows": 4,
+        "name": "description",
+        "type": "text",
+        "title": "Mô tả"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Hình ảnh chứng nhận, huy chương, hoặc giấy chứng nhận",
+        "name": "image",
+        "type": "image",
+        "title": "Hình ảnh chứng nhận"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link đến bài đăng, giấy chứng nhận, hoặc trang liên quan",
+        "name": "url",
+        "type": "url",
+        "title": "URL"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean",
+        "title": "Thành tích nổi bật"
+      },
+      {
+        "initialValue": 0,
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "achievement",
+    "type": "document",
+    "title": "Thành tích & Huy chương"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Tiêu đề"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Tóm tắt ngắn gọn cho thẻ xem trước",
+        "name": "excerpt",
+        "type": "text",
+        "title": "Tóm tắt"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Văn bản thay thế"
+          }
+        ],
+        "name": "featuredImage",
+        "type": "image",
+        "title": "Hình ảnh nổi bật"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Hướng dẫn",
+              "value": "tutorial"
+            },
+            {
+              "title": "Công nghệ",
+              "value": "technical"
+            },
+            {
+              "title": "AI/ML",
+              "value": "ai-ml"
+            },
+            {
+              "title": "Phát triển Web",
+              "value": "web-dev"
+            },
+            {
+              "title": "Nghề nghiệp",
+              "value": "career"
+            },
+            {
+              "title": "Ý kiến",
+              "value": "opinion"
+            },
+            {
+              "title": "Trưng bày dự án",
+              "value": "showcase"
+            },
+            {
+              "title": "Thực tiễn tốt nhất",
+              "value": "best-practices"
+            },
+            {
+              "title": "Tin tức",
+              "value": "news"
+            }
+          ]
+        },
+        "name": "category",
+        "type": "string",
+        "title": "Danh mục"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array",
+        "title": "Thẻ"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "publishedAt",
+        "type": "datetime",
+        "title": "Ngày xuất bản"
+      },
+      {
+        "description": "Thời gian đọc ước tính",
+        "name": "readTime",
+        "type": "number",
+        "title": "Thời gian đọc (phút)"
+      }
+    ],
+    "name": "blog",
+    "type": "document",
+    "title": "Bài viết blog"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Tiêu đề dịch vụ"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Biểu tượng hoặc hình minh họa đại diện cho dịch vụ",
+        "name": "icon",
+        "type": "image",
+        "title": "Biểu tượng/Hình ảnh"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 150
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Một câu mô tả ngắn gọn",
+        "name": "shortDescription",
+        "type": "text",
+        "title": "Mô tả ngắn"
+      },
+      {
+        "description": "Mô tả chi tiết về dịch vụ",
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "fullDescription",
+        "type": "array",
+        "title": "Mô tả chi tiết"
+      },
+      {
+        "description": "Các điểm chính có trong dịch vụ",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "features",
+        "type": "array",
+        "title": "Các tính năng chính"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "skill"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to kỹ năng"
+          }
+        ],
+        "name": "technologies",
+        "type": "array",
+        "title": "Công nghệ"
+      },
+      {
+        "description": "Các sản phẩm mà khách hàng nhận được",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "deliverables",
+        "type": "array",
+        "title": "Các sản phẩm giao"
+      },
+      {
+        "fields": [
+          {
+            "name": "startingPrice",
+            "type": "number",
+            "title": "Giá khởi điểm (VND)"
+          },
+          {
+            "options": {
+              "list": [
+                {
+                  "title": "Mỗi giờ",
+                  "value": "hourly"
+                },
+                {
+                  "title": "Mỗi dự án",
+                  "value": "project"
+                },
+                {
+                  "title": "Hàng tháng",
+                  "value": "monthly"
+                },
+                {
+                  "title": "Hoa hồng",
+                  "value": "custom"
+                }
+              ]
+            },
+            "name": "priceType",
+            "type": "string",
+            "title": "Loại giá"
+          },
+          {
+            "rows": 2,
+            "name": "description",
+            "type": "text",
+            "title": "Mô tả giá"
+          }
+        ],
+        "name": "pricing",
+        "type": "object",
+        "title": "Bảng giá"
+      },
+      {
+        "description": "E.g., '2-4 weeks', '1-3 months'",
+        "name": "timeline",
+        "type": "string",
+        "title": "Dòng thời gian điển hình"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean",
+        "title": "Dịch vụ nổi bật"
+      },
+      {
+        "initialValue": 0,
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "service",
+    "type": "document",
+    "title": "Dịch vụ"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Tên"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "email",
+        "type": "string",
+        "title": "E-mail"
+      },
+      {
+        "name": "subject",
+        "type": "string",
+        "title": "Tiêu đề"
+      },
+      {
+        "rows": 5,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "message",
+        "type": "text",
+        "title": "Nội dung"
+      },
+      {
+        "name": "submittedAt",
+        "type": "datetime",
+        "title": "Thời gian gửi"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Mới",
+              "value": "new"
+            },
+            {
+              "title": "Đã lưu",
+              "value": "archived"
+            }
+          ]
+        },
+        "initialValue": "new",
+        "name": "status",
+        "type": "string",
+        "title": "Trạng thái"
+      },
+      {
+        "rows": 3,
+        "description": "Ghi chú nội bộ về yêu cầu này",
+        "name": "notes",
+        "type": "text",
+        "title": "Ghi chú nội bộ"
+      }
+    ],
+    "name": "contact",
+    "type": "document",
+    "title": "Gửi biểu mẫu liên hệ"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "siteTitle",
+        "type": "string",
+        "title": "Tên trang web"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Mô tả trang web cho SEO",
+        "name": "siteDescription",
+        "type": "text",
+        "title": "Mô tả trang web"
+      },
+      {
+        "description": "Từ khóa SEO",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "siteKeywords",
+        "type": "array",
+        "title": "Từ khóa SEO"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "siteLogo",
+        "type": "image",
+        "title": "Logo trang web"
+      },
+      {
+        "description": "32x32 px recommended",
+        "name": "favicon",
+        "type": "image",
+        "title": "Favicon trang web"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Hình ảnh mặc định khi chia sẻ trang web trên mạng xã hội (1200x630 recommended)",
+        "name": "ogImage",
+        "type": "image",
+        "title": "Hình ảnh chia sẻ trên mạng xã hội"
+      },
+      {
+        "description": "Mã màu Hex (ví dụ: #3B82F6)",
+        "name": "primaryColor",
+        "type": "string",
+        "title": "Màu thương hiệu chính"
+      },
+      {
+        "description": "Mã màu Hex (ví dụ: #3B82F6)",
+        "name": "secondaryColor",
+        "type": "string",
+        "title": "Màu thương hiệu phụ"
+      },
+      {
+        "description": "Mã màu hex cho CTA và điểm nổi bật (ví dụ: #EF4444)",
+        "name": "accentColor",
+        "type": "string",
+        "title": "Màu nhấn"
+      },
+      {
+        "description": "Nội dung CTA chính (ví dụ: 'Hire Me', 'Get in Touch')",
+        "name": "ctaText",
+        "type": "string",
+        "title": "Nội dung CTA chính"
+      },
+      {
+        "description": "URL mà CTA chính вед đến (ví dụ: #contact, /contact)",
+        "name": "ctaUrl",
+        "type": "string",
+        "title": "URL CTA chính"
+      },
+      {
+        "description": "Tiêu đề chính trên trang chủ",
+        "name": "heroHeadline",
+        "type": "string",
+        "title": "Tiêu đề hero"
+      },
+      {
+        "rows": 2,
+        "name": "heroSubheadline",
+        "type": "text",
+        "title": "Tiêu đề phụ hero"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "heroBackground",
+        "type": "image",
+        "title": "Hình nền hero"
+      },
+      {
+        "initialValue": true,
+        "name": "showBlog",
+        "type": "boolean",
+        "title": "Hiển thị phần Blog"
+      },
+      {
+        "initialValue": true,
+        "name": "showServices",
+        "type": "boolean",
+        "title": "Hiển thị phần Dịch vụ"
+      },
+      {
+        "initialValue": true,
+        "name": "showTestimonials",
+        "type": "boolean",
+        "title": "Hiển thị phần chứng thực"
+      },
+      {
+        "description": "ID theo dõi GA (ví dụ: G-XXXXXXXXXX)",
+        "name": "googleAnalyticsId",
+        "type": "string",
+        "title": "Mã Google Analytics"
+      },
+      {
+        "name": "facebookPixelId",
+        "type": "string",
+        "title": "Mã Facebook Pixel"
+      },
+      {
+        "description": "Tên tài khoản Twitter mà trang web sử dụng (không có @)",
+        "name": "twitterHandle",
+        "type": "string",
+        "title": "Tên tài khoản Twitter"
+      },
+      {
+        "fields": [
+          {
+            "rows": 2,
+            "name": "text",
+            "type": "text",
+            "title": "Nội dung chân trang"
+          },
+          {
+            "description": "Ví dụ: '© 2025 Your Name. All rights reserved.'",
+            "name": "copyrightText",
+            "type": "string",
+            "title": "Nội dung bản quyền"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "name": "title",
+                    "type": "string",
+                    "title": "Tiêu đề"
+                  },
+                  {
+                    "name": "url",
+                    "type": "string",
+                    "title": "URL"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "links",
+            "type": "array",
+            "title": "Liên kết chân trang"
+          }
+        ],
+        "name": "footer",
+        "type": "object",
+        "title": "Cài đặt chân trang"
+      },
+      {
+        "initialValue": false,
+        "description": "Bật để hiển thị trang bảo trì",
+        "name": "maintenanceMode",
+        "type": "boolean",
+        "title": "Chế độ bảo trì"
+      },
+      {
+        "rows": 3,
+        "name": "maintenanceMessage",
+        "type": "text",
+        "title": "Nội dung thông báo bảo trì"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document",
+    "title": "Cài đặt trang web"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Tiêu đề liên kết"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Neo trang (ví dụ: '#about') hoặc URL bên ngoài (ví dụ: 'https://github.com/username')",
+        "name": "href",
+        "type": "string",
+        "title": "URL liên kết"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Tên biểu tượng Tabler (ví dụ: 'IconHome', 'IconBrandGithub')",
+        "name": "icon",
+        "type": "string",
+        "title": "Tên biểu tượng"
+      },
+      {
+        "initialValue": false,
+        "description": "Chuyển đổi nếu liên kết này dẫn đến trang web bên ngoài",
+        "name": "isExternal",
+        "type": "boolean",
+        "title": "Liên kết bên ngoài"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Số nhỏ hơn sẽ xuất hiện trước",
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "navigation",
+    "type": "document",
+    "title": "Điều hướng"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "institution",
+        "type": "string",
+        "title": "Tên cơ sở giáo dục"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ví dụ: 'Cử nhân Khoa học', 'Thạc sĩ Khoa học Máy tính''",
+        "name": "degree",
+        "type": "string",
+        "title": "Bằng cấp"
+      },
+      {
+        "description": "Ví dụ: 'Khoa học máy tính', 'Kỹ thuật phần mềm'",
+        "name": "fieldOfStudy",
+        "type": "string",
+        "title": "Ngành học"
+      },
+      {
+        "name": "startDate",
+        "type": "date",
+        "title": "Ngày bắt đầu"
+      },
+      {
+        "description": "Để trống nếu đang theo học",
+        "name": "endDate",
+        "type": "date",
+        "title": "Ngày kết thúc"
+      },
+      {
+        "initialValue": false,
+        "name": "current",
+        "type": "boolean",
+        "title": "Đang theo học"
+      },
+      {
+        "description": "Ví dụ: '3.8/4.0'",
+        "name": "gpa",
+        "type": "string",
+        "title": "GPA"
+      },
+      {
+        "rows": 4,
+        "description": "Các khóa học, thành tích hoặc hoạt động nổi bật",
+        "name": "description",
+        "type": "text",
+        "title": "Mô tả"
+      },
+      {
+        "description": "Danh sách của Trưởng khoa, Học bổng, Giải thưởng, v.v.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "achievements",
+        "type": "array",
+        "title": "Thành tích & Học bổng"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "logo",
+        "type": "image",
+        "title": "Logo cơ sở giáo dục"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "website",
+        "type": "url",
+        "title": "Website cơ sở giáo dục"
+      },
+      {
+        "initialValue": 0,
+        "name": "order",
+        "type": "number",
+        "title": "Thứ tự hiển thị"
+      }
+    ],
+    "name": "education",
+    "type": "document",
+    "title": "Học vấn"
+  }
+]

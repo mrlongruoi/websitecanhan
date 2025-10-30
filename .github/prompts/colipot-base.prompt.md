@@ -1,3 +1,5 @@
+# Colipot Agent · Repo Onboarding
+
 ---
 description: "Colipot Base: TypeScript only. No any."
 model: "default"
