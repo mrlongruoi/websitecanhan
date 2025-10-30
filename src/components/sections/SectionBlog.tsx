@@ -52,7 +52,7 @@ export async function SectionBlog() {
                 className=""
               >
                 {post.featuredImage && (
-                  <div className="">
+                  <div className="relative aspect-3/2 overflow-hidden">
                     <Image
                       src={urlFor(post.featuredImage)
                         .width(600)

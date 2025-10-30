@@ -42,7 +42,7 @@ export async function SectionDuAn() {
               >
                 {/* Project Image */}
                 {project.coverImage && (
-                  <div className="">
+                  <div className="relative aspect-3/2 overflow-hidden">
                     <Image
                       src={urlFor(project.coverImage)
                         .width(600)

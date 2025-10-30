@@ -3,7 +3,7 @@ import Link from "next/link";
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 
-const ABOUT_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
+const ABOUT_QUERY = defineQuery(`*[_id == "singleton-profile" && _type == "profile"][0]{
   firstName,
   lastName,
   fullBio,
@@ -63,7 +63,14 @@ export async function SectionGioiThieu() {
                   em: ({ children }) => <em className="">{children}</em>,
                   link: ({ children, value }) => {
                     const href = value?.href || "";
-                    const isExternal = href.startsWith("http");
+                    const isExternal = href.startsWith("http://") ||
+                      href.startsWith("https://") ||
+                      href.startsWith("//");
+
+                    if (href.startsWith("javascript:") || href.startsWith("data:")) {
+                      return <span>{children}</span>;
+                    }
+                    
                     return (
                       <Link
                         href={href}

@@ -91,12 +91,13 @@ export async function SectionDichVu() {
                                         className=""
                                     >
                                         {service.icon && (
-                                            <div className="">
+                                            <div className="relative h-16 w-16">
                                                 <Image
                                                     src={urlFor(service.icon).width(64).height(64).url()}
                                                     alt={service.title || "Service"}
-                                                    fill
-                                                    className=""
+                                                    width={64}
+                                                    height={64}
+                                                    className="h-full w-full object-contain"
                                                 />
                                             </div>
                                         )}
@@ -199,12 +200,13 @@ export async function SectionDichVu() {
                                         className=""
                                     >
                                         {service.icon && (
-                                            <div className="">
+                                            <div className="relative h-12 w-12">
                                                 <Image
                                                     src={urlFor(service.icon).width(48).height(48).url()}
                                                     alt={service.title || "Service"}
-                                                    fill
-                                                    className=""
+                                                    width={48}
+                                                    height={48}
+                                                    className="h-full w-full object-contain"
                                                 />
                                             </div>
                                         )}

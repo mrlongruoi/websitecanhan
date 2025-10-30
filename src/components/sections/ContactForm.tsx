@@ -45,21 +45,21 @@ export function ContactForm() {
 
       {status.type && (
         <div
-          className={` ${
+          className={`p-4 rounded-lg mb-4 text-sm ${
             status.type === "success"
-              ? ""
-              : ""
+              ? "bg-green-50 text-green-800 border border-green-200"
+              : "bg-red-50 text-red-800 border border-red-200"
           }`}
         >
           {status.message}
         </div>
       )}
 
-      <form className="space-y-3 @md/form:space-y-4" onSubmit={handleSubmit}>
+      <form className="" onSubmit={handleSubmit}>
         <div>
           <label
             htmlFor="name"
-            className="block text-xs @md/form:text-sm font-medium mb-2"
+            className=""
           >
             Name
           </label>
@@ -67,7 +67,7 @@ export function ContactForm() {
             type="text"
             id="name"
             name="name"
-            className="w-full px-3 py-1.5 @md/form:px-4 @md/form:py-2 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary text-sm @md/form:text-base"
+            className=""
             placeholder="Your name"
             required
             disabled={isPending}
@@ -77,7 +77,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-xs @md/form:text-sm font-medium mb-2"
+            className=""
           >
             Email
           </label>
@@ -85,7 +85,7 @@ export function ContactForm() {
             type="email"
             id="email"
             name="email"
-            className="w-full px-3 py-1.5 @md/form:px-4 @md/form:py-2 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary text-sm @md/form:text-base"
+            className=""
             placeholder="your.email@example.com"
             required
             disabled={isPending}
@@ -95,7 +95,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="subject"
-            className="block text-xs @md/form:text-sm font-medium mb-2"
+            className=""
           >
             Subject
           </label>
@@ -103,7 +103,7 @@ export function ContactForm() {
             type="text"
             id="subject"
             name="subject"
-            className="w-full px-3 py-1.5 @md/form:px-4 @md/form:py-2 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary text-sm @md/form:text-base"
+            className=""
             placeholder="What's this about?"
             required
             disabled={isPending}
@@ -113,7 +113,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="message"
-            className="block text-xs @md/form:text-sm font-medium mb-2"
+            className=""
           >
             Message
           </label>
@@ -121,7 +121,7 @@ export function ContactForm() {
             id="message"
             name="message"
             rows={5}
-            className="w-full px-3 py-1.5 @md/form:px-4 @md/form:py-2 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none text-sm @md/form:text-base"
+            className=""
             placeholder="Tell me about your project..."
             required
             disabled={isPending}
@@ -131,7 +131,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full px-4 py-2 @md/form:px-6 @md/form:py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium text-sm @md/form:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+          className=""
         >
           {isPending ? "Sending..." : "Send Message"}
         </button>

@@ -1,4 +1,5 @@
 "use client";
+
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -15,14 +16,22 @@ export const LayoutTextFlip = ({
   className?: string;
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const effectiveWords = words.length > 0 ? words : [text];
 
   useEffect(() => {
+    if (effectiveWords.length <= 1) {
+      setCurrentIndex(0);
+      return;
+    }
+
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % effectiveWords.length,
+      );
     }, duration);
 
     return () => clearInterval(interval);
-  }, [duration, words.length]);
+  }, [duration, effectiveWords.length]);
 
   return (
     <span className={cn("inline-flex flex-wrap items-center gap-2", className)}>
@@ -52,7 +61,7 @@ export const LayoutTextFlip = ({
               "inline-block whitespace-nowrap font-semibold text-primary",
             )}
           >
-            {words[currentIndex]}
+            {effectiveWords[currentIndex]}
           </motion.span>
         </AnimatePresence>
       </motion.span>

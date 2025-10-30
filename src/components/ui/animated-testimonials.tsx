@@ -22,10 +22,16 @@ export const AnimatedTestimonials = ({
   const [active, setActive] = useState(0);
 
   const handleNext = useCallback(() => {
+    if (testimonials.length === 0) {
+      return;
+    }
     setActive((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
 
   const handlePrev = () => {
+    if (testimonials.length === 0) {
+      return;
+    }
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
@@ -34,11 +40,16 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
-    if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
-      return () => clearInterval(interval);
+    if (!autoplay || testimonials.length <= 1) {
+      return;
     }
-  }, [autoplay, handleNext]);
+    const interval = setInterval(handleNext, 5000);
+    return () => clearInterval(interval);
+  }, [autoplay, testimonials.length, handleNext]);
+
+  if (testimonials.length === 0) {
+    return null;
+  }
 
   const getRotation = (index: number) => {
     // Deterministic rotation based on index to avoid hydration mismatch

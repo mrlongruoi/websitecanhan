@@ -17,6 +17,28 @@ export async function submitContactForm(formData: FormData) {
       };
     }
 
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return {
+        success: false,
+        error: "Please provide a valid email address",
+      };
+    }
+
+    // Validate lengths
+    if (
+      name.length > 100 ||
+      email.length > 254 ||
+      (subject && subject.length > 200) ||
+      message.length > 5000
+    ) {
+      return {
+        success: false,
+        error: "One or more fields exceed maximum length",
+      };
+    }
+
     // Create the document in Sanity
     const result = await serverClient.create({
       _type: "contact",

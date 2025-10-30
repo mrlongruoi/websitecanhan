@@ -137,19 +137,20 @@ export async function SectionXacThuc() {
                       {cert.logo && (
                         <div className="">
                           <div className="">
-                            <div className="">
+                            <div className="relative h-16 w-16">
                               <Image
                                 src={urlFor(cert.logo)
                                   .width(64)
                                   .height(64)
                                   .url()}
                                 alt={`${cert.name} badge`}
-                                fill
-                                className=""
+                                width={64}
+                                height={64}
+                                className="h-full w-full object-contain"
                               />
                             </div>
                           </div>
-                        </div>
+                          +                       </div>
                       )}
 
                       {/* Issued By */}
@@ -168,8 +169,8 @@ export async function SectionXacThuc() {
                               {cert.skills.slice(0, 4).map((skill, idx) => {
                                 const skillData =
                                   skill &&
-                                  typeof skill === "object" &&
-                                  "name" in skill
+                                    typeof skill === "object" &&
+                                    "name" in skill
                                     ? skill
                                     : null;
                                 return skillData?.name ? (

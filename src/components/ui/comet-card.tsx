@@ -80,7 +80,7 @@ export const CometCard = ({
   };
 
   return (
-    <div className={cn("", className)}>
+    <div className={cn("relative", className)}>
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}
@@ -99,11 +99,11 @@ export const CometCard = ({
           z: 50,
           transition: { duration: 0.2 },
         }}
-        className=""
+        className="relative overflow-hidden will-change-transform"
       >
         {children}
         <motion.div
-          className=""
+          className="pointer-events-none absolute inset-0"
           style={{
             background: glareBackground,
             opacity: 0.8,

@@ -7,6 +7,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 
 const EDUCATION_QUERY =
   defineQuery(`*[_type == "education"] | order(endDate desc, startDate desc){
+  _id,
   institution,
   degree,
   fieldOfStudy,
@@ -77,7 +78,7 @@ export async function SectionGiaoDuc() {
 
             return (
               <div
-                key={`${edu.institution}-${edu.degree}-${edu.startDate}`}
+                key={edu._id || `${edu.institution}-${edu.degree}-${edu.startDate}`}
                 className=""
               >
                 {/* Accent gradient bar */}

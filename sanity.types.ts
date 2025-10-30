@@ -641,127 +641,8 @@ export type AllSanitySchemaTypes = Education | Navigation | SiteSettings | Conta
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/components/chat/ChatWrapper.tsx
 // Variable: CHAT_PROFILE_QUERY
-// Query: *[_id == "singleton-profile"][0]{    _id,    _type,    _createdAt,    _updatedAt,    _rev,    firstName,    lastName,    headline,    shortBio,    email,    phone,    location,    availability,    socialLinks,    yearsOfExperience,    profileImage  }
+// Query: *[_id == "singleton-profile" && _type == "profile"][0]{    _id,    _type,    _createdAt,    _updatedAt,    _rev,    firstName,    lastName,    headline,    shortBio,    email,    phone,    location,    availability,    socialLinks,    yearsOfExperience,    profileImage  }
 export type CHAT_PROFILE_QUERYResult = {
-  _id: string;
-  _type: "achievement";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "blog";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "certification";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "contact";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: string | null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "education";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "experience";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: string | null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "navigation";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
   _id: string;
   _type: "profile";
   _createdAt: string;
@@ -799,125 +680,6 @@ export type CHAT_PROFILE_QUERYResult = {
     alt?: string;
     _type: "image";
   } | null;
-} | {
-  _id: string;
-  _type: "project";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "sanity.imageAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "service";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "siteSettings";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "skill";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: number | null;
-  profileImage: null;
-} | {
-  _id: string;
-  _type: "testimonial";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  firstName: null;
-  lastName: null;
-  headline: null;
-  shortBio: null;
-  email: null;
-  phone: null;
-  location: null;
-  availability: null;
-  socialLinks: null;
-  yearsOfExperience: null;
-  profileImage: null;
 } | null;
 
 // Source: ./src/components/sections/SectionAnhHung.tsx
@@ -1170,8 +932,9 @@ export type PROJECTS_QUERYResult = Array<{
 
 // Source: ./src/components/sections/SectionGiaoDuc.tsx
 // Variable: EDUCATION_QUERY
-// Query: *[_type == "education"] | order(endDate desc, startDate desc){  institution,  degree,  fieldOfStudy,  startDate,  endDate,  current,  gpa,  description,  achievements,  logo,  website,  order}
+// Query: *[_type == "education"] | order(endDate desc, startDate desc){  _id,  institution,  degree,  fieldOfStudy,  startDate,  endDate,  current,  gpa,  description,  achievements,  logo,  website,  order}
 export type EDUCATION_QUERYResult = Array<{
+  _id: string;
   institution: string | null;
   degree: string | null;
   fieldOfStudy: string | null;
@@ -1199,44 +962,8 @@ export type EDUCATION_QUERYResult = Array<{
 
 // Source: ./src/components/sections/SectionGioiThieu.tsx
 // Variable: ABOUT_QUERY
-// Query: *[_id == "singleton-profile"][0]{  firstName,  lastName,  fullBio,  yearsOfExperience,  stats,  email,  phone,  location}
+// Query: *[_id == "singleton-profile" && _type == "profile"][0]{  firstName,  lastName,  fullBio,  yearsOfExperience,  stats,  email,  phone,  location}
 export type ABOUT_QUERYResult = {
-  firstName: null;
-  lastName: null;
-  fullBio: null;
-  yearsOfExperience: null;
-  stats: null;
-  email: null;
-  phone: null;
-  location: null;
-} | {
-  firstName: null;
-  lastName: null;
-  fullBio: null;
-  yearsOfExperience: number | null;
-  stats: null;
-  email: null;
-  phone: null;
-  location: null;
-} | {
-  firstName: null;
-  lastName: null;
-  fullBio: null;
-  yearsOfExperience: null;
-  stats: null;
-  email: null;
-  phone: null;
-  location: string | null;
-} | {
-  firstName: null;
-  lastName: null;
-  fullBio: null;
-  yearsOfExperience: null;
-  stats: null;
-  email: string | null;
-  phone: null;
-  location: null;
-} | {
   firstName: string | null;
   lastName: string | null;
   fullBio: Array<{
@@ -1333,23 +1060,8 @@ export type SKILLS_QUERYResult = Array<{
 
 // Source: ./src/components/sections/SectionLienHe.tsx
 // Variable: PROFILE_QUERY
-// Query: *[_id == "singleton-profile"][0]{  email,  phone,  location,  socialLinks}
+// Query: *[_id == "singleton-profile" && _type == "profile"][0]{  email,  phone,  location,  socialLinks}
 export type PROFILE_QUERYResult = {
-  email: null;
-  phone: null;
-  location: null;
-  socialLinks: null;
-} | {
-  email: null;
-  phone: null;
-  location: string | null;
-  socialLinks: null;
-} | {
-  email: string | null;
-  phone: null;
-  location: null;
-  socialLinks: null;
-} | {
   email: string | null;
   phone: string | null;
   location: string | null;
@@ -1425,17 +1137,17 @@ export type CERTIFICATIONS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_id == \"singleton-profile\"][0]{\n    _id,\n    _type,\n    _createdAt,\n    _updatedAt,\n    _rev,\n    firstName,\n    lastName,\n    headline,\n    shortBio,\n    email,\n    phone,\n    location,\n    availability,\n    socialLinks,\n    yearsOfExperience,\n    profileImage\n  }": CHAT_PROFILE_QUERYResult;
+    "*[_id == \"singleton-profile\" && _type == \"profile\"][0]{\n    _id,\n    _type,\n    _createdAt,\n    _updatedAt,\n    _rev,\n    firstName,\n    lastName,\n    headline,\n    shortBio,\n    email,\n    phone,\n    location,\n    availability,\n    socialLinks,\n    yearsOfExperience,\n    profileImage\n  }": CHAT_PROFILE_QUERYResult;
     "*[_id == \"singleton-profile\"][0]{\n  firstName,\n  lastName,\n  headline,\n  headlineStaticText,\n  headlineAnimatedWords,\n  headlineAnimationDuration,\n  shortBio,\n  email,\n  phone,\n  location,\n  availability,\n  socialLinks,\n  yearsOfExperience,\n  profileImage\n}": HERO_QUERYResult;
     "*[_type == \"blog\"] | order(publishedAt desc){\n  title,\n  slug,\n  excerpt,\n  category,\n  tags,\n  publishedAt,\n  readTime,\n  featuredImage\n}": BLOG_QUERYResult;
     "*[_type == \"testimonial\" && featured == true] | order(order asc){\n  name,\n  position,\n  company,\n  testimonial,\n  rating,\n  date,\n  avatar,\n  companyLogo,\n  linkedinUrl\n}": TESTIMONIALS_QUERYResult;
     "*[_type == \"service\"] | order(order asc, _createdAt desc){\n  title,\n  slug,\n  icon,\n  shortDescription,\n  fullDescription,\n  features,\n  technologies[]->{name, category},\n  deliverables,\n  pricing,\n  timeline,\n  featured,\n  order\n}": SERVICES_QUERYResult;
     "*[_type == \"project\" && featured == true] | order(order asc)[0...6]{\n  title,\n  slug,\n  tagline,\n  category,\n  liveUrl,\n  githubUrl,\n  coverImage,\n  technologies[]->{name, category, color}\n}": PROJECTS_QUERYResult;
-    "*[_type == \"education\"] | order(endDate desc, startDate desc){\n  institution,\n  degree,\n  fieldOfStudy,\n  startDate,\n  endDate,\n  current,\n  gpa,\n  description,\n  achievements,\n  logo,\n  website,\n  order\n}": EDUCATION_QUERYResult;
-    "*[_id == \"singleton-profile\"][0]{\n  firstName,\n  lastName,\n  fullBio,\n  yearsOfExperience,\n  stats,\n  email,\n  phone,\n  location\n}": ABOUT_QUERYResult;
+    "*[_type == \"education\"] | order(endDate desc, startDate desc){\n  _id,\n  institution,\n  degree,\n  fieldOfStudy,\n  startDate,\n  endDate,\n  current,\n  gpa,\n  description,\n  achievements,\n  logo,\n  website,\n  order\n}": EDUCATION_QUERYResult;
+    "*[_id == \"singleton-profile\" && _type == \"profile\"][0]{\n  firstName,\n  lastName,\n  fullBio,\n  yearsOfExperience,\n  stats,\n  email,\n  phone,\n  location\n}": ABOUT_QUERYResult;
     "*[_type == \"experience\"] | order(startDate desc){\n  company,\n  position,\n  employmentType,\n  location,\n  startDate,\n  endDate,\n  current,\n  description,\n  responsibilities,\n  achievements,\n  technologies[]->{name, category},\n  companyLogo,\n  companyWebsite\n}": EXPERIENCE_QUERYResult;
     "*[_type == \"skill\"] | order(category asc, order asc){\n  name,\n  category,\n  proficiency,\n  percentage,\n  yearsOfExperience,\n  color\n}": SKILLS_QUERYResult;
-    "*[_id == \"singleton-profile\"][0]{\n  email,\n  phone,\n  location,\n  socialLinks\n}": PROFILE_QUERYResult;
+    "*[_id == \"singleton-profile\" && _type == \"profile\"][0]{\n  email,\n  phone,\n  location,\n  socialLinks\n}": PROFILE_QUERYResult;
     "*[_type == \"achievement\"] | order(date desc){\n  title,\n  type,\n  issuer,\n  date,\n  description,\n  image,\n  url,\n  featured,\n  order\n}": ACHIEVEMENTS_QUERYResult;
     "*[_type == \"certification\"] | order(issueDate desc){\n  name,\n  issuer,\n  issueDate,\n  expiryDate,\n  credentialId,\n  credentialUrl,\n  logo,\n  description,\n  skills[]->{name, category},\n  order\n}": CERTIFICATIONS_QUERYResult;
   }

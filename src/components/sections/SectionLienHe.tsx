@@ -4,7 +4,7 @@ import WorldMapDemo from "@/components/world-map-demo";
 import { sanityFetch } from "@/sanity/lib/live";
 import { ContactForm } from "./ContactForm";
 
-const PROFILE_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
+const PROFILE_QUERY = defineQuery(`*[_id == "singleton-profile" && _type == "profile"][0]{
   email,
   phone,
   location,

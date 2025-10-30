@@ -35,7 +35,7 @@ export function ProfileImage({
         src={imageUrl}
         alt={`${firstName} ${lastName}`}
         fill
-        className=""
+        className="position: relative w-12 h-12"
         priority
       />
 

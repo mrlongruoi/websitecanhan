@@ -28,7 +28,7 @@ export function Chat({
   const { control } = useChatKit({
     api: {
       getClientSecret: async (_existingSecret) => {
-        // Called on initial load and when session needs refresh, we dont actuall use the existing secret as userId is managed by Clerk
+        // Called on initial load and when session needs refresh, we don't actually use the existing secret as userId is managed by Clerk
         return createSession();
       },
     },
