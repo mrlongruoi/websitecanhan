@@ -4,8 +4,13 @@
 import studioConfig from "..\\..\\sanity.config.ts"
 import {renderStudio} from "sanity"
 
+const container = document.getElementById("sanity");
+  if (!container) {
+    throw new Error('Element with id "sanity" not found. Sanity Studio requires this element to mount.');
+  }
+
 renderStudio(
-  document.getElementById("sanity"),
+  container,
   studioConfig,
   {reactStrictMode: false, basePath: "/"}
 )

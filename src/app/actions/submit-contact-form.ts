@@ -4,10 +4,10 @@ import { serverClient } from "@/sanity/lib/serverClient";
 
 export async function submitContactForm(formData: FormData) {
   try {
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const subject = formData.get("subject") as string;
-    const message = formData.get("message") as string;
+    const name = (formData.get("name") as string)?.trim() || "";
+    const email = (formData.get("email") as string)?.trim() || "";
+    const subject = (formData.get("subject") as string)?.trim() || "";
+    const message = (formData.get("message") as string)?.trim() || "";
 
     // Validate the required fields
     if (!name || !email || !message) {
