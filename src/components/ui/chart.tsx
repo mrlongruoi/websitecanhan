@@ -3,11 +3,20 @@
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 // Minimal prop types for Recharts custom renderers to avoid type conflicts across versions
+type TooltipPayloadItem = {
+  type?: string;
+  dataKey?: string;
+  name?: string | number;
+  value?: string | number | null;
+  color?: string;
+  payload?: { fill?: string } & Record<string, unknown>;
+};
+
 type TooltipContentPropsFix = {
   active?: boolean;
-  payload?: unknown[]; // recharts Payload[]
+  payload?: TooltipPayloadItem[];
   label?: React.ReactNode;
-  labelFormatter?: (label: React.ReactNode, payload?: unknown[]) => React.ReactNode;
+  labelFormatter?: (label: React.ReactNode, payload?: TooltipPayloadItem[]) => React.ReactNode;
   formatter?: (
     value: unknown,
     name: React.ReactNode,
@@ -20,9 +29,18 @@ type TooltipContentPropsFix = {
   nameKey?: string;
   labelKey?: string;
 };
+type LegendPayloadItem = {
+  type?: string;
+  dataKey?: string;
+  name?: string;
+  value?: string | number;
+  color?: string;
+  payload?: unknown;
+};
+
 type LegendLikeProps = {
-  payload?: unknown[];
-  verticalAlign?: string;
+  payload?: LegendPayloadItem[];
+  verticalAlign?: "top" | "bottom" | "middle";
 };
 
 import { cn } from "@/lib/utils";
@@ -187,23 +205,26 @@ function ChartTooltipContent({
   }) {
   const { config } = useChart();
 
+  // Ensure mapped items have a concrete type
+  const items: TooltipPayloadItem[] = Array.isArray(payload) ? payload : [];
+
   const tooltipLabel = React.useMemo(() => {
-    if (hideLabel || !payload?.length) {
+    if (hideLabel || !items.length) {
       return null;
     }
 
-    const [item] = payload;
+    const [item] = items;
     const key = `${labelKey || item?.dataKey || item?.name || "value"}`;
     const itemConfig = getPayloadConfigFromPayload(config, item, key);
     const value =
       !labelKey && typeof label === "string"
-        ? config[label]?.label ?? label
+        ? config[label as keyof typeof config]?.label ?? label
         : itemConfig?.label;
 
     if (labelFormatter) {
       return (
         <div className={cn("font-medium", labelClassName)}>
-          {labelFormatter(value, payload)}
+          {labelFormatter(value, items)}
         </div>
       );
     }
@@ -216,18 +237,18 @@ function ChartTooltipContent({
   }, [
     label,
     labelFormatter,
-    payload,
+    items,
     hideLabel,
     labelClassName,
     config,
     labelKey,
   ]);
 
-  if (!active || !payload?.length) {
+  if (!active || !items.length) {
     return null;
   }
 
-  const nestLabel = payload.length === 1 && indicator !== "dot";
+  const nestLabel = items.length === 1 && indicator !== "dot";
 
   return (
     <div
@@ -238,16 +259,16 @@ function ChartTooltipContent({
     >
       {nestLabel ? null : tooltipLabel}
       <div className="grid gap-1.5">
-        {(Array.isArray(payload) ? payload : [])
+        {items
           .filter((item) => item.type !== "none")
           .map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`;
             const itemConfig = getPayloadConfigFromPayload(config, item, key);
-            const indicatorColor = color || item.payload.fill || item.color;
+            const indicatorColor = color || item.payload?.fill || item.color;
 
             return (
               <div
-                key={item.dataKey}
+                key={item.dataKey ?? String(item.name ?? index)}
                 className={cn(
                   "[&>svg]:text-muted-foreground flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5",
                   indicator === "dot" && "items-center",
@@ -326,7 +347,7 @@ function ChartLegendContent({
   }) {
   const { config } = useChart();
 
-  const legendItems = Array.isArray(payload) ? payload : [];
+  const legendItems: LegendPayloadItem[] = Array.isArray(payload) ? payload : [];
   if (!legendItems.length) {
     return null;
   }

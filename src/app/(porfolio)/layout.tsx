@@ -7,6 +7,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import SidebarToggle from "@/components/SidebarToggle";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { SanityLive } from "@/sanity/lib/live";
+import { FloatingDock } from "@/components/FloatingDock";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,14 +39,17 @@ export default function RootLayout({
             src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
             strategy="afterInteractive"
           />
-          <SidebarProvider>
+          <SidebarProvider defaultOpen={false}>
             <SidebarInset>
               {children}
             </SidebarInset>
 
             <AppSidebar side="right" />
 
+            <FloatingDock />
+
             <SidebarToggle />
+            
           </SidebarProvider>
 
           <SanityLive />
