@@ -95,7 +95,7 @@ export async function SectionThanhTich() {
                     className=""
                   >
                     {achievement.image && (
-                      <div className="">
+                      <div className="relative h-48 w-full">
                         <Image
                           src={urlFor(achievement.image)
                             .width(400)
@@ -103,7 +103,7 @@ export async function SectionThanhTich() {
                             .url()}
                           alt={achievement.title || "Achievement"}
                           fill
-                          className=""
+                          className="object-cover"
                         />
                       </div>
                     )}
@@ -171,7 +171,7 @@ export async function SectionThanhTich() {
                     className=""
                   >
                     {achievement.image && (
-                      <div className="">
+                      <div className="relative h-40 w-full">
                         <Image
                           src={urlFor(achievement.image)
                             .width(300)
@@ -179,7 +179,7 @@ export async function SectionThanhTich() {
                             .url()}
                           alt={achievement.title || "Achievement"}
                           fill
-                          className=""
+                          className="object-cover"
                         />
                       </div>
                     )}

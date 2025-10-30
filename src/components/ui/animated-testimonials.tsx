@@ -47,6 +47,16 @@ export const AnimatedTestimonials = ({
     return () => clearInterval(interval);
   }, [autoplay, testimonials.length, handleNext]);
 
+  useEffect(() => {
+    if (testimonials.length === 0) {
+      setActive(0);
+      return;
+    }
+    setActive((prev) =>
+      prev >= testimonials.length ? testimonials.length - 1 : prev,
+    );
+  }, [testimonials.length]);
+
   if (testimonials.length === 0) {
     return null;
   }

@@ -1105,8 +1105,9 @@ export type ACHIEVEMENTS_QUERYResult = Array<{
 
 // Source: ./src/components/sections/SectionXacThuc.tsx
 // Variable: CERTIFICATIONS_QUERY
-// Query: *[_type == "certification"] | order(issueDate desc){  name,  issuer,  issueDate,  expiryDate,  credentialId,  credentialUrl,  logo,  description,  skills[]->{name, category},  order}
+// Query: *[_type == "certification"] | order(issueDate desc){  _id,  name,  issuer,  issueDate,  expiryDate,  credentialId,  credentialUrl,  logo,  description,  skills[]->{name, category},  order}
 export type CERTIFICATIONS_QUERYResult = Array<{
+  _id: string;
   name: string | null;
   issuer: string | null;
   issueDate: string | null;
@@ -1149,6 +1150,6 @@ declare module "@sanity/client" {
     "*[_type == \"skill\"] | order(category asc, order asc){\n  name,\n  category,\n  proficiency,\n  percentage,\n  yearsOfExperience,\n  color\n}": SKILLS_QUERYResult;
     "*[_id == \"singleton-profile\" && _type == \"profile\"][0]{\n  email,\n  phone,\n  location,\n  socialLinks\n}": PROFILE_QUERYResult;
     "*[_type == \"achievement\"] | order(date desc){\n  title,\n  type,\n  issuer,\n  date,\n  description,\n  image,\n  url,\n  featured,\n  order\n}": ACHIEVEMENTS_QUERYResult;
-    "*[_type == \"certification\"] | order(issueDate desc){\n  name,\n  issuer,\n  issueDate,\n  expiryDate,\n  credentialId,\n  credentialUrl,\n  logo,\n  description,\n  skills[]->{name, category},\n  order\n}": CERTIFICATIONS_QUERYResult;
+    "*[_type == \"certification\"] | order(issueDate desc){\n  _id,\n  name,\n  issuer,\n  issueDate,\n  expiryDate,\n  credentialId,\n  credentialUrl,\n  logo,\n  description,\n  skills[]->{name, category},\n  order\n}": CERTIFICATIONS_QUERYResult;
   }
 }

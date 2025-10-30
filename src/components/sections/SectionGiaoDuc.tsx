@@ -88,12 +88,13 @@ export async function SectionGiaoDuc() {
                   {/* Header with logo and basic info */}
                   <div className="">
                     {edu.logo && (
-                      <div className="">
+                      <div className="relative h-16 w-16">
                         <Image
                           src={urlFor(edu.logo).width(64).height(64).url()}
                           alt={`${edu.institution} logo`}
-                          fill
-                          className=""
+                          width={64}
+                          height={64}
+                          className="h-full w-full object-contain"
                         />
                       </div>
                     )}

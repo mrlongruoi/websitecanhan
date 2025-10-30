@@ -8,6 +8,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 
 const CERTIFICATIONS_QUERY =
   defineQuery(`*[_type == "certification"] | order(issueDate desc){
+  _id,
   name,
   issuer,
   issueDate,
@@ -61,7 +62,7 @@ export async function SectionXacThuc() {
           <div className="">
             {certifications.map((cert) => (
               <CometCard
-                key={`${cert.issuer}-${cert.name}-${cert.issueDate}`}
+                key={cert._id ?? `${cert.issuer}-${cert.name}-${cert.issueDate}`}
                 rotateDepth={8}
                 translateDepth={10}
                 className=""
@@ -150,7 +151,7 @@ export async function SectionXacThuc() {
                               />
                             </div>
                           </div>
-                          +                       </div>
+                        </div>
                       )}
 
                       {/* Issued By */}

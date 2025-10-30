@@ -26,7 +26,7 @@ export function ProfileImage({
     <button
       type="button"
       onClick={() => (isSignedIn ? toggleSidebar() : openSignIn())}
-      className=""
+      className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       aria-label="Toggle AI Chat Sidebar"
@@ -35,7 +35,7 @@ export function ProfileImage({
         src={imageUrl}
         alt={`${firstName} ${lastName}`}
         fill
-        className="position: relative w-12 h-12"
+        className="object-cover"
         priority
       />
 
