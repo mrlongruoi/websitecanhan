@@ -1,3 +1,4 @@
+# Colipot Agent · Repo Onboarding
 ---
 description: "Backend: API chuẩn, ít rủi ro."
 mode: "agent"

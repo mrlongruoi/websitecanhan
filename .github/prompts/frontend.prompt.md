@@ -1,3 +1,5 @@
+# Colipot Agent · Repo Onboarding
+
 ---
 description: "Frontend: Agent prompt for UI animation tasks. Ship clean, responsive UI with Tailwind v4, GSAP, accessibility, Next.js image handling, etc."
 model: "default"
